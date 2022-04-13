@@ -18,8 +18,8 @@
 
 package dev.kobalt.holdem.web.play
 
+import dev.kobalt.holdem.web.extension.pageArticle
 import dev.kobalt.holdem.web.extension.respondHtmlContent
-import dev.kobalt.malwaredb.web.extension.pageArticle
 import dev.kobalt.web.personal.credit.credit
 import dev.kobalt.web.personal.holdem.holdemArticle
 import dev.kobalt.web.personal.holdem.holdemBetInput

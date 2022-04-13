@@ -16,12 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.index
+package dev.kobalt.holdem.web.index
 
+import dev.kobalt.holdem.web.about.AboutRepository
+import dev.kobalt.holdem.web.download.DownloadRepository
+import dev.kobalt.holdem.web.legal.LegalRepository
 import dev.kobalt.holdem.web.play.PlayRepository
 import dev.kobalt.holdem.web.source.SourceRepository
-import dev.kobalt.malwaredb.web.about.AboutRepository
-import dev.kobalt.malwaredb.web.legal.LegalRepository
 
 object IndexRepository {
 
@@ -31,6 +32,7 @@ object IndexRepository {
 
     val pageLinks = listOf(
         Triple(AboutRepository.pageRoute, AboutRepository.pageTitle, AboutRepository.pageSubtitle),
+        Triple(DownloadRepository.pageRoute, DownloadRepository.pageTitle, DownloadRepository.pageSubtitle),
         Triple(PlayRepository.pageRoute, PlayRepository.pageTitle, PlayRepository.pageSubtitle),
         Triple(SourceRepository.pageRoute, SourceRepository.pageTitle, SourceRepository.pageSubtitle),
         Triple(LegalRepository.pageRoute, LegalRepository.pageTitle, LegalRepository.pageSubtitle)

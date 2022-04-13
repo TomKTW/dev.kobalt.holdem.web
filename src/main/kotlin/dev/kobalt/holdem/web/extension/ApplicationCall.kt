@@ -18,9 +18,8 @@
 
 package dev.kobalt.holdem.web.extension
 
-import dev.kobalt.malwaredb.web.extension.defaultCss
-import dev.kobalt.malwaredb.web.html.HtmlRepository
-import dev.kobalt.malwaredb.web.index.IndexRepository
+import dev.kobalt.holdem.web.html.HtmlRepository
+import dev.kobalt.holdem.web.index.IndexRepository
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.http.content.*

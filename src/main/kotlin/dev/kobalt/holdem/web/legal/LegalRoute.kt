@@ -16,16 +16,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.legal
+package dev.kobalt.holdem.web.legal
 
+import dev.kobalt.holdem.web.extension.pageArticle
+import dev.kobalt.holdem.web.extension.pageLink
 import dev.kobalt.holdem.web.extension.respondHtmlContent
-import dev.kobalt.malwaredb.web.extension.pageArticle
-import dev.kobalt.malwaredb.web.extension.pageMarkdown
+import dev.kobalt.holdem.web.legal.program.legalProgramRoute
+import dev.kobalt.holdem.web.legal.server.legalServerRoute
 import io.ktor.application.*
 import io.ktor.routing.*
 
 fun Route.legalRoute() {
-    route("legal/") {
+    route(LegalRepository.pageRoute) {
         get {
             call.respondHtmlContent(
                 title = LegalRepository.pageTitle,
@@ -35,9 +37,13 @@ fun Route.legalRoute() {
                     LegalRepository.pageTitle,
                     LegalRepository.pageSubtitle
                 ) {
-                    pageMarkdown(LegalRepository.pageContent)
+                    LegalRepository.pageLinks.forEach {
+                        pageLink(it.second, it.third, it.first)
+                    }
                 }
             }
         }
+        legalProgramRoute()
+        legalServerRoute()
     }
 }

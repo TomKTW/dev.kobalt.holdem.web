@@ -16,23 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.holdem.web.source
+package dev.kobalt.holdem.web.legal.server.thirdparty
 
-object SourceRepository {
+import dev.kobalt.holdem.web.resource.ResourceRepository
 
-    val pageTitle = "Source"
-    val pageSubtitle = "Check out the code used for making this project."
-    val pageEmpty = "There are no source code repositories available."
-    val pageRoute = "source/"
+object LegalServerThirdPartyRepository {
 
-    fun selectList(): List<Triple<String, String, String>> = listOf(
-        Triple("dev.kobalt.holdem.android", "Application", "APK package of this application."),
-        Triple("dev.kobalt.holdem.jvm", "Backend", "Websocket server where whole game session is running."),
-        Triple(
-            "dev.kobalt.holdem.web",
-            "Frontend",
-            "Website server that connects to websocket server for game sessions."
-        )
-    )
+    val pageTitle = "Third-party components"
+    val pageSubtitle = "This server uses components from third party."
+    val pageRoute = "thirdparty/"
+    val pageContent get() = ResourceRepository.getText("serverThirdParty.md").orEmpty()
 
 }

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.html
+package dev.kobalt.holdem.web.html
 
 import dev.kobalt.holdem.web.resource.ResourceRepository
 import dev.kobalt.lib.hsp2html.extension.encodeToBase64String

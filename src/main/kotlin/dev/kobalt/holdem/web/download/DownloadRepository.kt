@@ -16,23 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.holdem.web.source
+package dev.kobalt.holdem.web.download
 
-object SourceRepository {
+import dev.kobalt.holdem.web.resource.ResourceRepository
 
-    val pageTitle = "Source"
-    val pageSubtitle = "Check out the code used for making this project."
-    val pageEmpty = "There are no source code repositories available."
-    val pageRoute = "source/"
+object DownloadRepository {
 
-    fun selectList(): List<Triple<String, String, String>> = listOf(
-        Triple("dev.kobalt.holdem.android", "Application", "APK package of this application."),
-        Triple("dev.kobalt.holdem.jvm", "Backend", "Websocket server where whole game session is running."),
-        Triple(
-            "dev.kobalt.holdem.web",
-            "Frontend",
-            "Website server that connects to websocket server for game sessions."
-        )
-    )
+    val pageTitle = "Download"
+    val pageSubtitle = "Use it on your system that you own."
+    val pageRoute = "download/"
+    val pageContent = ResourceRepository.getText("download.md").orEmpty()
 
+    var zipPath: String? = null
 }

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.about
+package dev.kobalt.holdem.web.about
 
 import dev.kobalt.holdem.web.resource.ResourceRepository
 

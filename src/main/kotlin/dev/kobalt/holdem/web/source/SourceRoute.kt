@@ -18,9 +18,9 @@
 
 package dev.kobalt.holdem.web.source
 
+import dev.kobalt.holdem.web.extension.pageArticle
+import dev.kobalt.holdem.web.extension.pageLink
 import dev.kobalt.holdem.web.extension.respondHtmlContent
-import dev.kobalt.malwaredb.web.extension.pageArticle
-import dev.kobalt.malwaredb.web.extension.pageLink
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*

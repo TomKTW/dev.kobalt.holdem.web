@@ -16,11 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.about
+package dev.kobalt.holdem.web.about
 
+import dev.kobalt.holdem.web.extension.pageArticle
+import dev.kobalt.holdem.web.extension.pageMarkdown
 import dev.kobalt.holdem.web.extension.respondHtmlContent
-import dev.kobalt.malwaredb.web.extension.pageArticle
-import dev.kobalt.malwaredb.web.extension.pageMarkdown
 import io.ktor.application.*
 import io.ktor.routing.*
 

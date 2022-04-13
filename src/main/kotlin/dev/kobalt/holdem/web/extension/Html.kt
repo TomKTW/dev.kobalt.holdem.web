@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.extension
+package dev.kobalt.holdem.web.extension
 
-import dev.kobalt.malwaredb.web.markdown.fromMarkdown
+import dev.kobalt.holdem.web.markdown.fromMarkdown
 import kotlinx.css.CssBuilder
 import kotlinx.html.*
 import java.awt.Color

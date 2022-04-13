@@ -16,10 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.status
+package dev.kobalt.holdem.web.status
 
+import dev.kobalt.holdem.web.extension.pageArticle
 import dev.kobalt.holdem.web.extension.respondHtmlContent
-import dev.kobalt.malwaredb.web.extension.pageArticle
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*

@@ -16,15 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.legal
+package dev.kobalt.holdem.web.legal
 
-import dev.kobalt.holdem.web.resource.ResourceRepository
+import dev.kobalt.holdem.web.legal.program.LegalProgramRepository
+import dev.kobalt.holdem.web.legal.server.LegalServerRepository
 
 object LegalRepository {
 
     val pageTitle = "Legal"
     val pageSubtitle = "To make sure things are fair as much as possible."
-    val pageContent = ResourceRepository.getText("legal.md")!!
     val pageRoute = "legal/"
+    val pageLinks = listOf(
+        Triple(LegalProgramRepository.pageRoute, LegalProgramRepository.pageTitle, LegalProgramRepository.pageSubtitle),
+        Triple(LegalServerRepository.pageRoute, LegalServerRepository.pageTitle, LegalServerRepository.pageSubtitle)
+    )
 
 }

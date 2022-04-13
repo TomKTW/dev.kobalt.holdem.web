@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.malwaredb.web.extension
+package dev.kobalt.holdem.web.extension
 
 import java.awt.Color
 

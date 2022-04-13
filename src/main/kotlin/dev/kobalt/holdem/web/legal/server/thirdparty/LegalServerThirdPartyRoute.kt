@@ -16,40 +16,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.holdem.web.index
+package dev.kobalt.holdem.web.legal.server.thirdparty
 
-import dev.kobalt.holdem.web.about.aboutRoute
-import dev.kobalt.holdem.web.download.downloadRoute
 import dev.kobalt.holdem.web.extension.pageArticle
-import dev.kobalt.holdem.web.extension.pageLink
+import dev.kobalt.holdem.web.extension.pageMarkdown
 import dev.kobalt.holdem.web.extension.respondHtmlContent
-import dev.kobalt.holdem.web.legal.legalRoute
-import dev.kobalt.holdem.web.play.playRoute
-import dev.kobalt.holdem.web.source.sourceRoute
+import dev.kobalt.holdem.web.legal.program.thirdparty.LegalProgramThirdPartyRepository
 import io.ktor.application.*
 import io.ktor.routing.*
 
-fun Route.indexRoute() {
-    route("/") {
+fun Route.legalServerThirdPartyRoute() {
+    route(LegalProgramThirdPartyRepository.pageRoute) {
         get {
             call.respondHtmlContent(
-                title = IndexRepository.pageTitle,
-                description = IndexRepository.pageSubtitle
+                title = LegalProgramThirdPartyRepository.pageTitle,
+                description = LegalProgramThirdPartyRepository.pageSubtitle
             ) {
                 pageArticle(
-                    IndexRepository.pageTitle,
-                    IndexRepository.pageSubtitle
+                    LegalProgramThirdPartyRepository.pageTitle,
+                    LegalProgramThirdPartyRepository.pageSubtitle
                 ) {
-                    IndexRepository.pageLinks.forEach {
-                        pageLink(it.second, it.third, it.first)
-                    }
+                    pageMarkdown(LegalProgramThirdPartyRepository.pageContent)
                 }
             }
         }
-        aboutRoute()
-        downloadRoute()
-        playRoute()
-        sourceRoute()
-        legalRoute()
     }
 }

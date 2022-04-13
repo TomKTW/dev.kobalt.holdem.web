@@ -16,40 +16,33 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.holdem.web.index
+package dev.kobalt.holdem.web.download
 
-import dev.kobalt.holdem.web.about.aboutRoute
-import dev.kobalt.holdem.web.download.downloadRoute
 import dev.kobalt.holdem.web.extension.pageArticle
-import dev.kobalt.holdem.web.extension.pageLink
+import dev.kobalt.holdem.web.extension.pageMarkdown
 import dev.kobalt.holdem.web.extension.respondHtmlContent
-import dev.kobalt.holdem.web.legal.legalRoute
-import dev.kobalt.holdem.web.play.playRoute
-import dev.kobalt.holdem.web.source.sourceRoute
 import io.ktor.application.*
+import io.ktor.http.content.*
 import io.ktor.routing.*
+import java.io.File
 
-fun Route.indexRoute() {
-    route("/") {
+fun Route.downloadRoute() {
+    route(DownloadRepository.pageRoute) {
         get {
             call.respondHtmlContent(
-                title = IndexRepository.pageTitle,
-                description = IndexRepository.pageSubtitle
+                title = DownloadRepository.pageTitle,
+                description = DownloadRepository.pageSubtitle
             ) {
                 pageArticle(
-                    IndexRepository.pageTitle,
-                    IndexRepository.pageSubtitle
+                    DownloadRepository.pageTitle,
+                    DownloadRepository.pageSubtitle
                 ) {
-                    IndexRepository.pageLinks.forEach {
-                        pageLink(it.second, it.third, it.first)
-                    }
+                    pageMarkdown(DownloadRepository.pageContent)
                 }
             }
         }
-        aboutRoute()
-        downloadRoute()
-        playRoute()
-        sourceRoute()
-        legalRoute()
+        static {
+            DownloadRepository.zipPath?.let { file("holdem.zip", File(it)) }
+        }
     }
 }

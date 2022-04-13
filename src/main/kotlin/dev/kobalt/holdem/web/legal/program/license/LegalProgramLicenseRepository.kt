@@ -16,23 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.kobalt.holdem.web.source
+package dev.kobalt.holdem.web.legal.program.license
 
-object SourceRepository {
+import dev.kobalt.holdem.web.resource.ResourceRepository
 
-    val pageTitle = "Source"
-    val pageSubtitle = "Check out the code used for making this project."
-    val pageEmpty = "There are no source code repositories available."
-    val pageRoute = "source/"
+object LegalProgramLicenseRepository {
 
-    fun selectList(): List<Triple<String, String, String>> = listOf(
-        Triple("dev.kobalt.holdem.android", "Application", "APK package of this application."),
-        Triple("dev.kobalt.holdem.jvm", "Backend", "Websocket server where whole game session is running."),
-        Triple(
-            "dev.kobalt.holdem.web",
-            "Frontend",
-            "Website server that connects to websocket server for game sessions."
-        )
-    )
+    val pageTitle = "License"
+    val pageSubtitle = "The program is licensed under AGPL-3.0."
+    val pageRoute = "license/"
+    val pageContent get() = ResourceRepository.getText("programLicense.md").orEmpty()
 
 }
