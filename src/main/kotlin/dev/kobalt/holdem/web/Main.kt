@@ -18,6 +18,7 @@
 
 package dev.kobalt.holdem.web
 
+import dev.kobalt.holdem.web.download.DownloadRepository
 import dev.kobalt.holdem.web.index.indexRoute
 import dev.kobalt.holdem.web.play.PlayRepository
 import dev.kobalt.holdem.web.status.exceptionStatus
@@ -36,10 +37,14 @@ import kotlin.concurrent.thread
 
 fun main(args: Array<String>) {
     val parser = ArgParser("server")
+    val zipPath by parser.option(ArgType.String, "zipPath", null, null)
     val httpServerPort by parser.option(ArgType.Int, "httpServerPort", null, null)
     val httpServerHost by parser.option(ArgType.String, "httpServerHost", null, null)
     val websocketServerUrl by parser.option(ArgType.String, "websocketServerUrl", null, null)
     parser.parse(args)
+    DownloadRepository.apply {
+        this.zipPath = zipPath
+    }
     PlayRepository.websocketServerUrl = websocketServerUrl
     ifLet(httpServerPort, httpServerHost) { port, host ->
         val server = embeddedServer(CIO, port, host) {
